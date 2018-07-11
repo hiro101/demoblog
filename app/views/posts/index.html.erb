@@ -20,13 +20,6 @@
           </div>
 <% end %>          
           <!--ページネーション-->
-          <ul class="pagination justify-content-center mb-4">
-            <li class="page-item">
-              <a class="page-link text-dark" href="#">&larr; 前のページ</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link text-dark" href="#">次のページ &rarr;</a>
-            </li>
-          </ul>  
+          <%= paginate @posts %>
           
 </div>

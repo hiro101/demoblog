@@ -5,13 +5,13 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all.order(created_at: :desc)
+    @posts = Post.page(params[:page]).order(created_at: :desc)
     @post = Post.find_by(id: params[:id])
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
-    # @post = Post.find_by(id: params[:id])
   end
 
   # GET /posts/new
