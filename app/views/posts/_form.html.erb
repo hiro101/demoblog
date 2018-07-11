@@ -1,32 +1,41 @@
-<%= form_with(model: post, local: true) do |form| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<div class="col-md-7 bg-light " style="border-radius: 30px;">
+  <%= form_with(model: post, local: true) do |form| %>
+    <% if post.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-      <ul>
-      <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+        <ul>
+        <% post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
 
+
+　 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :name, :html => {:class => 'name'}  %>
+    <%= form.text_field :name, :style => 'width: 70%;'%>
   </div>
 
   <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, :style => 'width: 70%;' %>
   </div>
 
-  <div class="field">
+  <div class="field ">
     <%= form.label :content %>
-    <%= form.text_area :content %>
+    <%= form.text_area :content, :style => 'width: 70%; height:300px;' %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
+
+
 <% end %>
+<%= link_to 'Back', posts_path %>
+</div>
+<div class="offset-md-1">
+</div>

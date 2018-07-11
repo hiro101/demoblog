@@ -1,46 +1,59 @@
-<p id="notice"><%= notice %></p>
+<div class="col-md-8">
+　 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @post.name %>
-</p>
+　 <div class="card mb-4" style="border-radius:30px;">
+    <h2 class="card-title card-header"><%= @post.title %></h2>
+      <div class="card-body">
+        <p class="card-text"><%= @post.content %></p>
+      </div>
+      <div class="card-footer text-muted">
+        <p>
+          投稿者:<%= @post.name %>  
+          投稿日時:<%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+          <%= link_to '編集', edit_post_path(@post) %>
+          <%= link_to '削除', @post, method: :delete, data: { confirm: '本当に削除してよろしいですか?' } %>
+          <%= link_to '戻る', posts_path %>
+        </p>
+      </div>
+　 </div>
+  <%# <% @post.comments.each do |comment|%> 
+<%# 　 <div class="card mb-4" style="border-radius:30px;">
+    <h2 class="card-title card-header">コメント</h2>
+    <div class="card-body">
+      
+        <p class="card-text"> %>
+          <%# <%= comment.commenter : <%= comment.body     %> 
+        <%# </p>
+    </div>
+    <div class="card-footer text-muted"> %>
+       <%# <%= link_to '削除', [comment.post, comment],
+        :confirm => 'よろしいですか？',
+        :method => :delete %>
+    <%# </div>
+　</div> %>
+<%# 　<% end %> 
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
-
-
-<h2>コメント</h2>
-<% @post.comments.each do |comment| %>
-  <p>
-    <%= comment.commenter %>: <%= comment.body %>
-    <%= link_to '削除', [comment.post, comment],
-               :confirm => 'よろしいですか？',
-               :method => :delete %>
-
-  </p>
-<% end %>
-
-<h2>コメントを書く</h2>
-<%= form_for([@post, @post.comments.build]) do |f| %>
-  <div class="field">
-    <%= f.label :commenter %><br />
-    <%= f.text_field :commenter %>
-  </div>
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<%# 　<%= form_for([@post, @post.comments.build]) do |f| %> 
+    <%# <div class="card mb-4" style="border-radius:30px;">
+      <h2 class="card-title card-header">コメントを書く</h2>
+      <div class="card-body">
+        <p class="card-text"> 
+          <div class="field">
+            <%= f.label :commenter %> 
+            <%# <br /> %>
+   <%# 　       <%= f.text_field :commenter %> 
+          <%# </div>
+          <div class="field"> %>
+            <%# <%= f.label :body  <br /> %>
+            <%# <%= f.text_area :body %> 
+          <%# </div>
+        </p>
+      </div>
+      <div class="card-footer text-muted">
+        <div class="actions">
+          <%= f.submit %>
+        <%# </div>
+      </div>
+　   </div>  %> 
+   <%# <% end %> 
+</div>
