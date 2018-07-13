@@ -4,8 +4,8 @@
 <p id="notice"><%= notice %></p>
 <% @posts.each do |post| %>
           
-          <div class="card mb-4" style="border-radius:30px;">
-            <h2 class="card-title card-header"><%= post.title %></h2>
+          <div class="card mb-4">
+            <h2 class="card-title card-header bg-dark text-light"><%= post.title %></h2>
             <div class="card-body">
               <p class="card-text"><%= post.content.truncate(30) %></p>
               <%= link_to 'もっと見る', post, class:"btn btn-info text-light"%>

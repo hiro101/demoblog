@@ -32,9 +32,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="bg-dark">
+  <body class="bg-white">
     
-  <nav class="navbar navbar-expand-md navbar-light bg-light m-0" style="border-radius:30px;">
+  <nav class="navbar navbar-expand-md navbar-info bg-info m-0" style="border-radius:30px;">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -49,13 +49,13 @@
             <%= link_to 'ABOUT', '/home/about', class: "nav-link" %>
           </li>
           <li class="nav-item mx-3">
-            <%= link_to 'NEW', new_post_path, class: "nav-link" %>
+            <%= link_to 'NEW POST', new_post_path, class: "nav-link" %>
           </li>
         </ul>
       
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Search">
-          <button class="btn btn-info my-2 my-sm-0" type="submit">Search</button>
+          <button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
         </form>
     </div>
 
