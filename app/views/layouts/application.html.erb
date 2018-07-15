@@ -38,9 +38,10 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <%= link_to image_tag("hiroblog.png",height:"70px"), posts_path , class: "navbar-brand m-0", id: "brand-logo"%>
+   
 
     <div class="collapse navbar-collapse justify-content-end"  id="navbarNav4">
+       
         <ul class="navbar-nav">
           <li class="nav-item mx-3">
             <%= link_to 'HOME', '/posts', class: "nav-link" %>
@@ -64,7 +65,7 @@
   <div class="container">
     <div class="row mt-4">
       <%= yield %>
-        <div class="col-md-4 mt-4">
+        <div class="col-md-4 col-xs-12 mt-4">
 
           <div class="slider">
             <div><%= image_tag("waterIMGL2609_TP_V4.jpg", width:"100%", ) %></div>
