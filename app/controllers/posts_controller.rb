@@ -62,6 +62,10 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def result
+    @post = Post.find(params[:id])
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -73,4 +77,5 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:name, :title, :content)
     end
+
 end
