@@ -17,3 +17,9 @@ nav a:hover{
     background-color: #f8f9fa;
     color: lightseagreen;
 }
+
+@media screen and (max-width: 768px){
+    .navbar-brand {
+       font-size: 5px;
+    }
+}

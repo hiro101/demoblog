@@ -7,6 +7,11 @@ class PostsController < ApplicationController
     @posts = Post.all.order(created_at: :desc)
     @posts = Post.page(params[:page]).order(created_at: :desc)
     @post = Post.find_by(id: params[:id])
+
+    if params[:content].present? 
+      @posts = @posts.get_by_content params[:content]
+    end
+
   end
 
   # GET /posts/1
@@ -64,13 +69,18 @@ class PostsController < ApplicationController
   end
   
   def result
-    @post = Post.find(params[:id])
+    @post = Post.find_by_id(id: params[:id])
+    if @post 
+      @msg = nil
+    else
+      @msg = "検索結果がありません"
+    end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      @post = Post.find(params[:id])
+        @post = Post.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
