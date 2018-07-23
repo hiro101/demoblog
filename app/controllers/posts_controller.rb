@@ -11,7 +11,10 @@ class PostsController < ApplicationController
     if params[:content].present? 
       @posts = @posts.get_by_content params[:content]
     end
-
+    # 変更点
+    if params[:category].present?
+      @posts = @posts.get_by_category params[:category]
+    end
   end
 
   # GET /posts/1
@@ -77,6 +80,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def check
+    @posts = Post.all
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -85,7 +92,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:name, :title, :content)
+      params.require(:post).permit(:name, :title, :content, :category)
     end
 
 end

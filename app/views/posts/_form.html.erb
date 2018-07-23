@@ -24,6 +24,12 @@
     <%= form.text_field :title, :style => 'width: 70%;' %>
   </div>
 
+<!--   追加箇所　　　-->
+  <div class="field">
+    <p>category</p>
+    <%= form.select :category, Post.categories.keys%>
+  </div>
+
   <div class="field ">
     <%= form.label :content %>
     <%= form.text_area :content, :style => 'width: 70%; height:300px;' %>
@@ -37,5 +43,5 @@
 <% end %>
 <%= link_to 'Back', posts_path %>
 </div>
-<div class="offset-md-1">
-</div>
+
+<div class="offset-md-1"></div>

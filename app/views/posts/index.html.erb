@@ -1,25 +1,29 @@
+<div class="col-md-8">
 
+  <p id="notice"><%= notice %></p>
 
- <div class="col-md-8">
-<p id="notice"><%= notice %></p>
-<% @posts.each do |post| %>
-          
-          <div class="card mb-4">
-            <h2 class="card-title card-header bg-dark text-light"><%= post.title %></h2>
-            <div class="card-body">
-              <p class="card-text"><%= post.content.truncate(30) %></p>
-              <%= link_to 'もっと見る', post, class:"btn btn-info text-light"%>
-            </div>
-            <div class="card-footer text-muted">
-              <p>投稿者:<%= post.name %>  
-              投稿日時:<%= post.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
-                <%= link_to '編集', edit_post_path(post) %>
-                <%= link_to '削除', post, method: :delete, data: { confirm: '本当に削除してよろしいですか?' } %>
-              </p>
-            </div>
-          </div>
-<% end %>          
+  <% @posts.each do |post| %>
+    <div class="card mb-4">
+      <h2 class="card-title card-header bg-dark text-light"><%= post.title %></h2>
+      <div class="card-body">
+        <p class="card-text">
+          <%= post.content.truncate(30) %>
+        </p>
+        <%= link_to 'もっと見る', post, class:"btn btn-info text-light"%>
+      </div>
+      <div class="card-footer text-muted">
+        <p>
+          投稿者:<%= post.name %>  
+          投稿日時:<%= post.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+          カテゴリー:<%= link_to post.category ,controller:"posts",action:"index",category: post.category %>
+          <%= link_to '編集', edit_post_path(post) %>
+          <%= link_to '削除', post, method: :delete, data: { confirm: '本当に削除してよろしいですか?' } %>
+        </p>
+      </div>
+    </div>
+  <% end %>   
+           
           <!--ページネーション-->
-          <%= paginate @posts %>
+  <%= paginate @posts %>
           
 </div>
