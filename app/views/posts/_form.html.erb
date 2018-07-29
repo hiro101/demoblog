@@ -35,6 +35,11 @@
     <%= form.text_area :content, :style => 'width: 70%; height:300px;' %>
   </div>
 
+  <div class="field">
+    <%= form.label :picture %>
+    <%= form.file_field :picture, id: :post_picture %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

@@ -7,10 +7,6 @@
       <h2 class="card-title card-header bg-dark text-light"><%= post.title %></h2>
       <div class="card-body">
         <p class="card-text">
-          <p>
-            <strong>Picture:</strong>
-            <%= image_tag(post.picture_url, style: "width: 80%;") if post.picture.present?  %>
-          </p>
           <%= post.content.truncate(30) %>
         </p>
         <%= link_to 'もっと見る', post, class:"btn btn-info text-light"%>
@@ -28,6 +24,6 @@
   <% end %>   
            
           <!--ページネーション-->
-  <%= will_paginate @posts, :renderer => BootstrapPagination::Rails %>
+  <%= paginate @posts %>
           
 </div>

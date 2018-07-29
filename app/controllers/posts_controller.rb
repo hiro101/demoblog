@@ -1,15 +1,15 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:edit, :update, :destroy]
 
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all.order(created_at: :desc)
-    @posts = Post.page(params[:page]).order(created_at: :desc)
+    @posts = Post.all.order(created_at: :desc).page(params[:page]).per_page(3)
+    # @posts = Post.page(params[:page]).order(created_at: :desc)
     @post = Post.find_by(id: params[:id])
-
-    if params[:content].present? 
-      @posts = @posts.get_by_content params[:content]
+    # 変更点
+    if params[:search].present? 
+      @posts = @posts.search params[:search]
     end
     # 変更点
     if params[:category].present?
@@ -20,6 +20,8 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @post = Post.find(params[:id])
+    @user = User.all
   end
 
   # GET /posts/new
@@ -92,7 +94,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:name, :title, :content, :category)
+      params.require(:post).permit(:name, :title, :content, :category, :picture)
     end
 
 end
